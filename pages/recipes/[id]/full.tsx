@@ -18,10 +18,40 @@ export default function FullRecipe({ recipe }: FullRecipeProps) {
         <pre>{recipe.fullText}</pre>
       </div>
       <style jsx>{`
+        .container {
+          max-width: 960px;
+          margin: 2rem auto;
+          padding: 2rem;
+          background: #ffffff;
+          border-radius: 8px;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+          text-align: center;
+          font-size: 2rem;
+          margin-bottom: 1rem;
+          color: #333;
+        }
+        .back-link {
+          display: inline-block;
+          margin-bottom: 1rem;
+          color: #0070f3;
+          text-decoration: none;
+          font-weight: bold;
+        }
+        .back-link:hover {
+          text-decoration: underline;
+        }
         .full-content {
           margin-top: 1rem;
           white-space: pre-wrap;
-          font-family: monospace;
+          background: #f8f9fa;
+          padding: 1.5rem;
+          border-radius: 4px;
+          font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+          font-size: 1rem;
+          line-height: 1.6;
+          color: #333;
         }
       `}</style>
     </div>

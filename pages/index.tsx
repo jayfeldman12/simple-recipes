@@ -21,36 +21,56 @@ export default function Home({ recipes }: HomeProps) {
           >
             <a className="card">
               <h2>{recipe.meta.title}</h2>
-              <Image
-                src={recipe.meta.image}
-                alt={recipe.meta.title}
-                width={300}
-                height={200}
-              />
+              <div className="image-wrapper">
+                <Image
+                  src={recipe.meta.image}
+                  alt={recipe.meta.title}
+                  width={300}
+                  height={200}
+                />
+              </div>
             </a>
           </Link>
         ))}
       </div>
       <style jsx>{`
+        div {
+          font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+          background: #f8f9fa;
+          padding: 2rem;
+        }
+        h1 {
+          text-align: center;
+          margin: 0;
+          color: #333;
+          font-size: 2.5rem;
+        }
         .grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 1rem;
-          margin-top: 1rem;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          gap: 1.5rem;
+          padding: 2rem 0;
         }
         .card {
-          border: 1px solid #ccc;
-          padding: 1rem;
-          text-align: center;
+          background: #f8f9fa;
+          border-radius: 10px;
+          overflow: hidden;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
           text-decoration: none;
           color: inherit;
-          transition: box-shadow 0.2s ease;
         }
         .card:hover {
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+          transform: translateY(-5px);
+          box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
         }
         h2 {
-          margin-bottom: 0.5rem;
+          margin: 1rem;
+          text-align: center;
+          font-size: 1.5rem;
+        }
+        .image-wrapper {
+          padding: 8px;
         }
       `}</style>
     </div>

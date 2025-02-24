@@ -37,19 +37,47 @@ export default function RecipeDetail({ recipe }: RecipeProps) {
         </div>
       </div>
       <style jsx>{`
+        .container {
+          max-width: 960px;
+          margin: 2rem auto;
+          padding: 2rem;
+          background: #f8f9fa;
+          border-radius: 8px;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        .back-link,
+        .view-full {
+          display: inline-block;
+          margin-bottom: 1rem;
+          color: #0070f3;
+          text-decoration: none;
+          font-weight: bold;
+        }
+        .back-link:hover,
+        .view-full:hover {
+          text-decoration: underline;
+        }
         .recipe-detail {
           display: flex;
           gap: 2rem;
-          margin-top: 1rem;
+          margin-top: 2rem;
         }
         .ingredients {
           flex: 1;
           max-width: 300px;
           overflow-y: auto;
           height: 80vh;
+          border: 1px solid #e9ecef;
+          padding: 1rem;
+          border-radius: 6px;
+          background: #f8f9fa;
         }
         .instructions {
           flex: 2;
+          border: 1px solid #e9ecef;
+          padding: 1rem;
+          border-radius: 6px;
+          background: #f8f9fa;
         }
         @media (max-width: 768px) {
           .recipe-detail {
@@ -58,7 +86,7 @@ export default function RecipeDetail({ recipe }: RecipeProps) {
           .ingredients {
             position: sticky;
             top: 0;
-            background: #fff;
+            background: #f8f9fa;
             z-index: 1;
             max-height: 40vh;
           }
