@@ -46,6 +46,7 @@ export default function RecipeDetail({ recipe }: RecipeProps) {
           flex: 1;
           max-width: 300px;
           overflow-y: auto;
+          height: 80vh;
         }
         .instructions {
           flex: 2;
@@ -59,6 +60,7 @@ export default function RecipeDetail({ recipe }: RecipeProps) {
             top: 0;
             background: #fff;
             z-index: 1;
+            max-height: 40vh;
           }
         }
       `}</style>
