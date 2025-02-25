@@ -96,15 +96,45 @@ export default function RecipeDetail({ recipe }: RecipeProps) {
           background: #f8f9fa;
         }
         @media (max-width: 768px) {
-          .recipe-detail {
-            flex-direction: column;
-            height: auto;
+          .container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: 0;
+            padding: 0.5rem;
+            height: 100vh;
+            overflow: hidden;
+            overscroll-behavior: none;
           }
-          .ingredients {
-            max-height: 40vh;
+          .back-link {
+            display: block;
+            height: 2rem;
+            line-height: 2rem;
+            margin-bottom: 0.5rem;
           }
           .content-wrapper {
-            height: auto;
+            height: calc(100% - 2rem);
+            overflow: hidden;
+          }
+          .recipe-detail {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+          }
+          .ingredients {
+            height: 25%;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior: contain;
+          }
+          .instructions {
+            flex: 1;
+            min-height: 0;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior: contain;
           }
         }
       `}</style>
