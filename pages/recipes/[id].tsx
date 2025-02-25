@@ -13,27 +13,34 @@ export default function RecipeDetail({ recipe }: RecipeProps) {
       <Link href="/" className="back-link">
         ← Back to Home
       </Link>
-      <div className="recipe-detail">
-        <div className="ingredients">
-          <h2>Ingredients</h2>
-          <ul>
-            {recipe.ingredients.map((ingredient, index) => (
-              <li key={index}>
-                {ingredient.name}: {ingredient.amount}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="instructions">
-          <h2>Instructions</h2>
-          <ol>
-            {recipe.instructions.map((inst, index) => (
-              <li key={index}>{inst.step}</li>
-            ))}
-          </ol>
-          <Link href={`/recipes/${recipe.meta.id}/full`} className="view-full">
-            View Full Recipe
-          </Link>
+      <div className="content-wrapper">
+        <div className="recipe-detail">
+          <div className="ingredients">
+            <div className="ingredients-inner">
+              <h2>Ingredients</h2>
+              <ul>
+                {recipe.ingredients.map((ingredient, index) => (
+                  <li key={index}>
+                    {ingredient.name}: {ingredient.amount}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <div className="instructions">
+            <h2>Instructions</h2>
+            <ol>
+              {recipe.instructions.map((inst, index) => (
+                <li key={index}>{inst.step}</li>
+              ))}
+            </ol>
+            <Link
+              href={`/recipes/${recipe.meta.id}/full`}
+              className="view-full"
+            >
+              View Full Recipe
+            </Link>
+          </div>
         </div>
       </div>
       <style jsx>{`
@@ -57,16 +64,23 @@ export default function RecipeDetail({ recipe }: RecipeProps) {
         .view-full:hover {
           text-decoration: underline;
         }
+        .content-wrapper {
+          height: calc(100vh - 4rem);
+          overflow: hidden;
+        }
         .recipe-detail {
           display: flex;
           gap: 2rem;
           margin-top: 2rem;
+          height: 100%;
         }
         .ingredients {
           flex: 1;
           max-width: 300px;
           overflow-y: auto;
-          height: 80vh;
+          height: 100%;
+        }
+        .ingredients-inner {
           border: 1px solid #e9ecef;
           padding: 1rem;
           border-radius: 6px;
@@ -74,6 +88,8 @@ export default function RecipeDetail({ recipe }: RecipeProps) {
         }
         .instructions {
           flex: 2;
+          overflow-y: auto;
+          height: 100%;
           border: 1px solid #e9ecef;
           padding: 1rem;
           border-radius: 6px;
@@ -82,13 +98,13 @@ export default function RecipeDetail({ recipe }: RecipeProps) {
         @media (max-width: 768px) {
           .recipe-detail {
             flex-direction: column;
+            height: auto;
           }
           .ingredients {
-            position: sticky;
-            top: 0;
-            background: #f8f9fa;
-            z-index: 1;
             max-height: 40vh;
+          }
+          .content-wrapper {
+            height: auto;
           }
         }
       `}</style>
