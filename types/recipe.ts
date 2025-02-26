@@ -1,7 +1,7 @@
 export interface RecipeMeta {
   id: string;
   title: string;
-  image: string;
+  externalImage: string;
 }
 
 export interface Ingredient {

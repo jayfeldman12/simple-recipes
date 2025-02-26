@@ -23,7 +23,7 @@ export default function Home({ recipes }: HomeProps) {
               <h2>{recipe.meta.title}</h2>
               <div className="image-wrapper">
                 <Image
-                  src={recipe.meta.image}
+                  src={recipe.meta.externalImage}
                   alt={recipe.meta.title}
                   width={300}
                   height={200}

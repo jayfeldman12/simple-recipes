@@ -13,6 +13,9 @@ export default function RecipeDetail({ recipe }: RecipeProps) {
       <Link href="/" className="back-link">
         ← Back to Home
       </Link>
+      <div className="recipe-image">
+        <img src={recipe.meta.externalImage} alt={recipe.meta.title} />
+      </div>
       <div className="content-wrapper">
         <div className="recipe-detail">
           <div className="ingredients">
@@ -64,8 +67,18 @@ export default function RecipeDetail({ recipe }: RecipeProps) {
         .view-full:hover {
           text-decoration: underline;
         }
+        .recipe-image {
+          margin-bottom: 1rem;
+          text-align: center;
+        }
+        .recipe-image img {
+          max-width: 400px;
+          height: auto;
+          display: block;
+          margin: 0 auto;
+        }
         .content-wrapper {
-          height: calc(100vh - 4rem);
+          height: calc(100% - 6rem);
           overflow: hidden;
         }
         .recipe-detail {
@@ -81,19 +94,21 @@ export default function RecipeDetail({ recipe }: RecipeProps) {
           height: 100%;
         }
         .ingredients-inner {
-          border: 1px solid #e9ecef;
+          border: 1px solid #ccc;
           padding: 1rem;
           border-radius: 6px;
           background: #f8f9fa;
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
         }
         .instructions {
           flex: 2;
           overflow-y: auto;
           height: 100%;
-          border: 1px solid #e9ecef;
+          border: 1px solid #ccc;
           padding: 1rem;
           border-radius: 6px;
           background: #f8f9fa;
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
         }
         @media (max-width: 768px) {
           .container {
@@ -112,22 +127,30 @@ export default function RecipeDetail({ recipe }: RecipeProps) {
             display: block;
             height: 2rem;
             line-height: 2rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 2rem !important;
+          }
+          .recipe-image {
+            display: none;
           }
           .content-wrapper {
-            height: calc(100% - 2rem);
+            height: calc(100% - 5rem);
             overflow: hidden;
           }
           .recipe-detail {
             display: flex;
             flex-direction: column;
             height: 100%;
+            margin-top: 0;
           }
           .ingredients {
-            height: 25%;
+            flex: 1;
+            min-height: 0;
+            max-width: none;
+            width: 100%;
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
             overscroll-behavior: contain;
+            margin-top: 1rem;
           }
           .instructions {
             flex: 1;
@@ -135,6 +158,7 @@ export default function RecipeDetail({ recipe }: RecipeProps) {
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
             overscroll-behavior: contain;
+            padding: 0.5rem 0.5rem 2rem 0.5rem;
           }
         }
       `}</style>

@@ -25,11 +25,8 @@ export function getAllRecipeIds(): string[] {
 
 export function getRecipeData(id: string): RecipeData {
   const recipeFolder = path.join(recipesDir, id);
-  const meta: RecipeMeta = {
-    id,
-    title: toPascalCase(id),
-    image: `/recipes/${id}/main.jpg`,
-  };
+  const metaPath = path.join(recipeFolder, "meta.json");
+  let meta: RecipeMeta = JSON.parse(fs.readFileSync(metaPath, "utf-8"));
 
   const ingredientsPath = path.join(recipeFolder, "ingredients.json");
   const instructionsPath = path.join(recipeFolder, "instructions.json");

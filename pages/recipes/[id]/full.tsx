@@ -52,6 +52,15 @@ export default function FullRecipe({ recipe }: FullRecipeProps) {
           font-size: 1rem;
           line-height: 1.6;
           color: #333;
+          overflow-wrap: break-word;
+          box-sizing: border-box;
+        }
+        .full-content pre {
+          white-space: pre-wrap;
+          word-wrap: break-word;
+          /* word-break removed to avoid breaking words in half */
+          max-width: 100%;
+          box-sizing: border-box;
         }
       `}</style>
     </div>
